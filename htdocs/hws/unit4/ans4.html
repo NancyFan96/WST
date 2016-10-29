@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>hw4</title>
+<link href="../../css/homeworks.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Unit 4: PHP and Data Base Access</h1>
+
+<h2 id="toc_1">Homework 1</h2>
+
+<p><strong>Q</strong>: </p>
+
+<ul>
+<li>Give the SELECT command to answer the question Who will go to the party held in Peking University?</li>
+<li>Figure out a way to obtain the column labels returned by mysql_fetch_array.</li>
+<li>Tell the difference between a CGI program and a PHP program executed by a Web Server.</li>
+</ul>
+
+<p><strong>A</strong>: </p>
+
+<p>(1) </p>
+
+<div><pre><code class="language-none">SELECT guest.Guest_Name
+FROM guest, party, guest_party
+WHERE guest_party.Guest_Num=guest.Guest_Num
+AND party.Party_Num=guest_party.Party_Num
+AND party.Place=&#39;Peking University&#39;;    </code></pre></div>
+
+<p>(2)</p>
+
+<div><pre><code class="language-none">$result = mysql_query($sql);
+$row = mysql_fetch_array($result，MYSQL_ASSOC);
+while($pair = each($row)) {
+ $key = $pair[&quot;key&quot;];
+ print(&quot;$key\n&quot;);
+}</code></pre></div>
+
+<p>(3) Difference between CGI and PHP program</p>
+
+<ul>
+<li>CGI must be seperated from html, but PHP program can be embedded in html</li>
+<li>CGI can be written in different languages, but PHP program is a kind of program written in ONE particular language.</li>
+<li>CGI need to be invoked by request, while PHP program can be processed by module.</li>
+</ul>
+
+<h2 id="toc_2">Homework 2</h2>
+
+<p><strong>Q</strong>: Set up PHP for your Apache and test it. <a href="http://net.pku.edu.cn/%7Ezt/wst/webtech2016/unit3_5/phpconfigure.htm">Detailed Instruction</a></p>
+
+<p><strong>A</strong>: </p>
+
+<p>This is the first step to do the later homeworks. See the completion of Homework 3-5 below.</p>
+
+<h2 id="toc_3">Homework 3</h2>
+
+<p><strong>Q</strong>: Transform the guest book that you implemented in week 3 into a Database version. </p>
+
+<h2 id="toc_4">Homework 4 (optional)</h2>
+
+<p><strong>Q</strong>: For homework3, only one Table is created. This time, create the other two tables, party table and party_guest table( you can choose different table names). Functions realized include:<br />
+1)Guest can find out what parties will be given and when and where. <br />
+2)In additon to Guest name, Age, Gender, .... User can choose what parties he or she wants to go.<br /> 
+3)Separate PHP programs are provided for the organizer to input information about the parties will be given. </p>
+
+<h2 id="toc_5">Homework 5 (optional)</h2>
+
+<p><strong>Q</strong>: Realize more query functions.</p>
+
+<p><strong>A</strong>: 
+<mark>Answer to homework 3-5</mark> can be see <a href="questionare.php" target=blank>HERE</a> | <a href="https://github.com/NancyFan96/WST" target=blank>SOURCE CODE</a></p>
+
+
+
+
+</body>
+
+</html>
